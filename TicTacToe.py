@@ -96,6 +96,12 @@ def check_o_win(spaces):
     if row_1[2] == 'o' and row_2[2] == 'o' and row_3[2] == 'o':
         return True
     
+def get_input(guesses):
+    guess = input('Guess a letter from a-z')
+    if len(guess) == 1:
+        if guess.isalpha() == True:
+            if guess not in guesses:
+                return guess
 def main():
     incorrect = 0
     word_list = create_list()
