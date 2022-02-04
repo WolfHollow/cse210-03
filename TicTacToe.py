@@ -25,11 +25,18 @@ def create_list():
     return [hi]
     
 def get_input(guesses):
-    guess = input('Guess a letter from a-z')
+    guess = input('Guess a letter from a-z: ')
     if len(guess) == 1:
         if guess.isalpha() == True:
             if guess not in guesses:
                 return guess
+            else:
+                print('You have already guessed that')
+        else:
+            print('Your guess is not a letter')
+    else:
+        print('Your guess is too long')
+        
 def main():
     incorrect = 0
     word_list = create_list()
