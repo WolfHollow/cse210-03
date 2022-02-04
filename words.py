@@ -18,6 +18,6 @@ def get_word():
             "yoked","youthful","yummy","zephyr","zigzag","zigzagging","zilch","zipper","zodiac","zombie"]
 
     
-    i = random.randint(0, len(word_list))
+    i = random.randint(0, len(word_list)-1)
     key_word = word_list[i]
     return key_word
