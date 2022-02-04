@@ -22,9 +22,7 @@ def create_man():
 
 
 def create_list():
-    return [1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-
+    return [hi]
     
 def get_input(guesses):
     guess = input('Guess a letter from a-z')
@@ -34,10 +32,15 @@ def get_input(guesses):
                 return guess
 def main():
     incorrect = 0
-    word = get_word()
+    word_list = create_list()
+    i = random.randint(0, len(word_list)-1)
+    key_word = word_list[i]
     win = False
+    guesses = []
     while win == False:
+        get_input(guesses)
         create_parachute(incorrect)
         create_man()
+        win = True
         
 main()
