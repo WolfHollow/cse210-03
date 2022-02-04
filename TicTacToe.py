@@ -1,7 +1,6 @@
 #Tic Tac Toe Game, Using functions, while loops, and if statments
 # Author - Ethan Shaw
-from words import get_word
-
+import random
 
 def create_parachute(incorrect):
     if incorrect == 0:
@@ -18,12 +17,10 @@ def create_parachute(incorrect):
 def create_man():
     print('  O')
     print('/ | \ ')
-    print(' / \ ')      
+    print(' / \ ')
 
 
-def create_list():
-    return [hi]
-    
+
 def get_input(guesses):
     guess = input('Guess a letter from a-z: ')
     if len(guess) == 1:
@@ -36,7 +33,16 @@ def get_input(guesses):
             print('Your guess is not a letter')
     else:
         print('Your guess is too long')
-        
+    
+
+def create_list():
+    return ['hi']
+
+def create_guessing(key_word):
+    for i in range(0, len(key_word)):
+        print('_ ', end='')
+    print('')
+
 def main():
     incorrect = 0
     word_list = create_list()
@@ -45,9 +51,11 @@ def main():
     win = False
     guesses = []
     while win == False:
+        create_guessing(key_word)
         get_input(guesses)
         create_parachute(incorrect)
         create_man()
-        win = True
-        
+        win = True     
+    
+
 main()
