@@ -11,6 +11,21 @@ def create_parachute(incorrect):
                     print(f'∖  /')
                     if incorrect < 5:
                         print('∖  /')
+def create_parachute(incorrect):
+    if incorrect == 0:
+        print(f'ㅡㅡ')
+        if incorrect < 2:
+            print(f'/  ∖')
+            if incorrect < 3:
+                print('ㅡㅡ')
+                if incorrect < 4:
+                    print(f'∖  /')
+                    if incorrect < 5:
+                        print('∖  /')
+def create_man():
+    print('O')
+    print('/ | ∖')
+    print('/ ∖')
                         
 def get_input_X(spaces):
     selected_space = int(input('Which space would you like to add an x to?'))
@@ -82,29 +97,11 @@ def check_o_win(spaces):
         return True
     
 def main():
-    turn = 1
-    spaces = create_list()
+    incorrect = 0
+    word_list = create_list()
     win = False
     while win == False:
-        if check_x_win(spaces) != True:
-            if check_o_win(spaces) != True:
-                if turn % 2 == 0:
-                    create_parachute(spaces)
-                    selected_space = get_input_O(spaces)
-                    add_O(selected_space, spaces)
-                    turn += 1
-                else:
-                    create_parachute(spaces)
-                    selected_space = get_input_X(spaces)
-                    add_X(selected_space, spaces)
-                    turn += 1
-            else:
-                win = True
-                print('Congratulations o won the game!')
-        else: 
-            win = True
-            print('Congratulations x won the game!')
-        if turn == 10:
-            print('The game is a tie!')
-            win = True
+        create_parachute(incorrect)
+        create_man()
+        
 main()
