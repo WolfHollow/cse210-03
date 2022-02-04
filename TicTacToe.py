@@ -5,31 +5,20 @@ from words import get_word
 
 def create_parachute(incorrect):
     if incorrect == 0:
-        print(f'ㅡㅡ')
+        print(f' ㅡ')
         if incorrect < 2:
-            print(f'/  ∖')
+            print(f'/  \ ')
             if incorrect < 3:
-                print('ㅡㅡ')
+                print('ㅡ ㅡ')
                 if incorrect < 4:
-                    print(f'∖  /')
+                    print(f'\   /')
                     if incorrect < 5:
-                        print('∖  /')
-def create_parachute(incorrect):
-    if incorrect == 0:
-        print(f'ㅡㅡ')
-        if incorrect < 2:
-            print(f'/  ∖')
-            if incorrect < 3:
-                print('ㅡㅡ')
-                if incorrect < 4:
-                    print(f'∖  /')
-                    if incorrect < 5:
-                        print('∖  /')
+                        print(' \ /')
+
 def create_man():
-    print('O')
-    print('/ | ∖')
-    print('/ ∖')
-                        
+    print('  O')
+    print('/ | \ ')
+    print(' / \ ')      
 
 
 def create_list():
