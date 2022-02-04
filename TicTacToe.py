@@ -99,6 +99,8 @@ def check_o_win(spaces):
 def main():
     incorrect = 0
     word_list = create_list()
+    i = random.randint(0, len(word_list))
+    key_word = word_list[i]
     win = False
     while win == False:
         create_parachute(incorrect)
