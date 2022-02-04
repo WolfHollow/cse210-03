@@ -1,12 +1,17 @@
 #Tic Tac Toe Game, Using functions, while loops, and if statments
 # Author - Ethan Shaw
-def create_board(spaces):
-    print(f'{spaces[0]}|{spaces[1]}|{spaces[2]}')
-    print(f'-+-+-')
-    print(f'{spaces[3]}|{spaces[4]}|{spaces[5]}')
-    print(f'-+-+-')
-    print(f'{spaces[6]}|{spaces[7]}|{spaces[8]}')
-
+def create_parachute(incorrect):
+    if incorrect == 0:
+        print(f'ㅡㅡ')
+        if incorrect < 2:
+            print(f'/  ∖')
+            if incorrect < 3:
+                print('ㅡㅡ')
+                if incorrect < 4:
+                    print(f'∖  /')
+                    if incorrect < 5:
+                        print('∖  /')
+                        
 def get_input_X(spaces):
     selected_space = int(input('Which space would you like to add an x to?'))
     while 5 != 0:
@@ -84,12 +89,12 @@ def main():
         if check_x_win(spaces) != True:
             if check_o_win(spaces) != True:
                 if turn % 2 == 0:
-                    create_board(spaces)
+                    create_parachute(spaces)
                     selected_space = get_input_O(spaces)
                     add_O(selected_space, spaces)
                     turn += 1
                 else:
-                    create_board(spaces)
+                    create_parachute(spaces)
                     selected_space = get_input_X(spaces)
                     add_X(selected_space, spaces)
                     turn += 1
