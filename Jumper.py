@@ -1,59 +1,96 @@
-import random
 
-def create_parachute(incorrect):
-    if incorrect == 0:
-        print(f' ㅡ')
+from ast import keyword
+import random
+from words import Word
+from letters import Letters
+class Game():
+
+
+    def create_parachute(self, incorrect):
+        if incorrect == 0:
+            print(f' ㅡ')
         if incorrect < 2:
             print(f'/  \ ')
-            if incorrect < 3:
-                print('ㅡ ㅡ')
-                if incorrect < 4:
-                    print(f'\   /')
-                    if incorrect < 5:
-                        print(' \ /')
+        if incorrect < 3:
+            print('ㅡ ㅡ')
+        if incorrect < 4:
+            print(f'\   /')
+        if incorrect < 5:
+            print(' \ /')
 
-def create_man():
-    print('  O')
-    print('/ | \ ')
-    print(' / \ ')
+    def create_man(self):
+        print('  O')
+        print('/ | \ ')
+        print(' / \ ')
 
 
 
-def get_input(guesses):
-    guess = input('Guess a letter from a-z: ')
-    if len(guess) == 1:
-        if guess.isalpha() == True:
-            if guess not in guesses:
-                return guess
+    def get_input(self, guesses):
+        self.guess = input('Guess a letter from a-z: ')
+        if len(self.guess) == 1:
+            if self.guess.isalpha() == True:
+                if self.guess not in guesses:
+                    return self.guess
+                else:
+                    print('You have already guessed that')
+                    return self.guess
             else:
-                print('You have already guessed that')
+                print('Your guess is not a letter')
+                return self.guess    
         else:
-            print('Your guess is not a letter')
-    else:
-        print('Your guess is too long')
-    
+            print('Your guess is too long')
+            return self.guess
+            
 
-def create_list():
-    return ['hi']
+    def create_lines(self, key):
+        output = []
+        for i in range(len(key)):
+                    print('_', end='')
+                    output.append('_')
+        print('')
+        return output
 
-def create_guessing(key_word):
-    for i in range(0, len(key_word)):
-        print('_ ', end='')
-    print('')
+    def get_lines(self, output, key, guesses):
+        for i in range(len(key)):
+            for j in range(len(guesses)):
+                if key[i] == guesses[j]:
+                    output.pop(i)
+                    output.insert(i, key[i])
+        for i in range(len(key)):
+            print(output[i], end='')
+        print('')
+        return output
 
-def main():
-    incorrect = 0
-    word_list = create_list()
-    i = random.randint(0, len(word_list)-1)
-    key_word = word_list[i]
-    win = False
-    guesses = []
-    while win == False:
-        create_guessing(key_word)
-        get_input(guesses)
-        create_parachute(incorrect)
-        create_man()
-        win = True     
-    
+    def main(self):
+        obj = Word()
+        key_word = obj.key_word
+        key = key_word
+        incorrect = 0
+        win = False
+        guesses = []
+        word = []
+        for i in range(len(key_word)):
+            word.append('_')
+        number = 0
+        while win == False:
+            self.create_parachute(incorrect)
+            self.create_man()
+            if number < 1:
+                output = self.create_lines(key)
+            else:
+                total = self.get_lines(output, key, guesses)
+                if '_' not in total:
+                    win = True
+                    print('Congradulations!!! You have won!!!')
+            if win == False:
+                input = self.get_input(guesses)
+                guesses.append(input)
+                if guesses[number] not in key:
+                    incorrect += 1
+                    print('You have guessed incorrectly')
 
-main()
+                if incorrect == 5:
+                    win = True
+                    print('You have lost the game')
+                number += 1
+            
