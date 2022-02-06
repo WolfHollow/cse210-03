@@ -1,5 +1,3 @@
-#Tic Tac Toe Game, Using functions, while loops, and if statments
-# Author - Ethan Shaw
 import random
 
 def create_parachute(incorrect):
